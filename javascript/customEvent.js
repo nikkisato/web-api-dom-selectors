@@ -17,7 +17,16 @@ dogContainer.addEventListener("animalfound", (event) => {
 document.querySelector("body").appendChild(dogContainer);
 
 // dispatch the events
-dogContainer.dispatchEvent(dogFound);
+// dogContainer.dispatchEvent(dogFound);
+
+document.getElementById("dog").addEventListener("click", () => {
+  something();
+});
+
+function something() {
+  console.log("BYE");
+  dogContainer.dispatchEvent(dogFound);
+}
 
 // Found another one
 // const event = new CustomEvent("build", { detail: elem.dataset.time });

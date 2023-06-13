@@ -20,3 +20,4 @@ document.getElementById("start-button").addEventListener("click", () => {
 });
 
 //https://developer.mozilla.org/en-US/docs/Web/API/EyeDropper
+// change it to async await

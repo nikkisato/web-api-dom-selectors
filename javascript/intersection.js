@@ -1,5 +1,5 @@
-//Intersection Observer
-//https:/wesbos.com/javascript/06-serious-practice-exercises/scroll-events-and-intersection-observer
+// Intersection Observer
+// https:/wesbos.com/javascript/06-serious-practice-exercises/scroll-events-and-intersection-observer
 // Listen for scroll position. Animate something when the user crosses a threshold
 
 // Creating a div element
@@ -7,6 +7,7 @@ const bodyElement2 = document.querySelector("body");
 const div2Element = document.createElement("div");
 div2Element.classList.add("container", "conditions");
 
+// Loop this
 //attaching content to div
 div2Element.innerHTML = `<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
@@ -59,3 +60,6 @@ const ob = new IntersectionObserver(obCallback, {
 });
 
 ob.observe(conditionSection.lastElementChild);
+
+//vinoshopper as we scroll animate left and animate right
+// things appear
