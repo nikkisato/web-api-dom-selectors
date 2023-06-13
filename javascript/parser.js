@@ -19,4 +19,6 @@ function fetchStuff() {
     });
 }
 
-fetchStuff();
+setTimeout(() => {
+  fetchStuff();
+}, 3000);
