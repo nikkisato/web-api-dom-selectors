@@ -1,26 +1,34 @@
 // new CustomEvent(type, options)
+// create a container div
+const dogContainer = document.createElement("div");
 
+// this one is using options and type
 const dogFound = new CustomEvent("animalfound", {
   detail: {
-    name: "dog",
+    name: "Corgi",
   },
 });
 
 // add an appropriate event listener
-obj.addEventListener("animalfound", (e) => console.log(e.detail.name));
+dogContainer.addEventListener("animalfound", (event) => {
+  dogContainer.innerText = event.detail.name;
+});
+
+document.querySelector("body").appendChild(dogContainer);
 
 // dispatch the events
-obj.dispatchEvent(dogFound);
+dogContainer.dispatchEvent(dogFound);
 
-const event = new CustomEvent("build", { detail: elem.dataset.time });
+// Found another one
+// const event = new CustomEvent("build", { detail: elem.dataset.time });
 
-function eventHandler(e) {
-  console.log(`The time is: ${e.detail}`);
+// function eventHandler(event) {
+//   console.log(`The time is: ${event.detail}`);
 
-  const timeContainer = document.createElement("div");
+//   const timeContainer = document.createElement("div");
 
-  timeContainer.innerHTML = `The time is: ${e.detail}`;
-  document.querySelector("body").appendChild(timeContainer);
-}
+//   timeContainer.innerHTML = `The time is: ${event.detail}`;
+//   document.querySelector("body").appendChild(timeContainer);
+// }
 
-eventHandler();
+// eventHandler();
