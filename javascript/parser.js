@@ -1,9 +1,11 @@
 function fetchStuff() {
   fetch(window.location.href)
     .then((res) => {
+      console.log("res", res);
       return res.text();
     })
     .then((text) => {
+      console.log("text", text);
       const parser = new DOMParser();
       console.log(parser);
       const fetchedDom = parser.parseFromString(text, "text/html");
