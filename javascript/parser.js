@@ -1,5 +1,5 @@
 function fetchStuff() {
-  fetch("https://www.google.com/")
+  fetch(window.location.href)
     .then((res) => {
       return res.text();
     })
