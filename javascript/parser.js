@@ -1,5 +1,5 @@
 function fetchStuff() {
-  fetch(window.location.url)
+  fetch("https://www.google.com/")
     .then((res) => {
       return res.text();
     })
@@ -17,6 +17,4 @@ function fetchStuff() {
     });
 }
 
-setInterval(() => {
-  fetchStuff();
-}, 3000);
+fetchStuff();
