@@ -1,23 +1,26 @@
 function fetchStuff() {
   fetch(window.location.href)
     .then((res) => {
-      console.log("res", res);
       return res.text();
     })
     .then((text) => {
-      console.log("text", text);
-      const parser = new DOMParser();
-      console.log(parser);
-      const fetchedDom = parser.parseFromString(text, "text/html");
-      const heading = fetchedDom.body.querySelector("h1");
-
-      const div = document.createElement("div");
-      div.append(heading);
-      div.classList.add("parser-borders");
-      document.querySelector("body").appendChild(div);
+      const data = getData(text);
+      updateUI(data);
     });
 }
 
-setTimeout(fetchStuff, 3000);
+function getData(text) {
+  const parser = new DOMParser();
+  const fetchedDom = parser.parseFromString(text, "text/html");
+  // ask Chris about this return? is there a better way to do this?
+  return (heading = fetchedDom.body.querySelector("h1"));
+}
 
-// UI and data layer
+function updateUI(heading) {
+  const div = document.createElement("div");
+  div.append(heading);
+  div.classList.add("parser-borders");
+  document.querySelector("body").appendChild(div);
+}
+
+setTimeout(fetchStuff, 3000);
