@@ -2,8 +2,7 @@
 const buttonElement = document.querySelector("button");
 buttonElement.addEventListener("click", changeBackgroundColor);
 
-function changeBackgroundColor(event) {
-  event.preventDefault();
+function changeBackgroundColor() {
   const containerBody = document.querySelector(".container");
   containerBody.style.background = randColor();
 }
@@ -21,21 +20,32 @@ function randColor() {
   );
 }
 
-const bodyObject = document.getElementById("section");
-const bodyBackground = bodyObject.style;
+// possible look at the container object instead of section HOMEWORK
+const sectionObject = document.getElementById("section");
 const printColor = document.getElementById("printColor");
 
+let count = 0;
+
 const mutation = new MutationObserver((entries) => {
+  if (count > 10) {
+    mutation.disconnect();
+    return;
+  }
+
   for (let entry of entries) {
-    console.log(entry.target.style.background);
-    // ask chris about this I can't seem to get this to Print out the color, I keep running into infinity loop
-    printColor.innerText = entry.target.style.background;
+    if (entry.target.classList.contains("container")) {
+      count++;
+      printColor.innerText = entry.target.style.background;
+    }
   }
 });
 
-mutation.observe(bodyObject, { attributes: true, childList: true, subtree: true });
+mutation.observe(sectionObject, { attributes: true, childList: true, subtree: true });
 
 // I've run into a problem When do i know when to stop observing????
+// its a usecase, if we want to keep using the mutation observer don't disconnect
+// after we successfully after one time usecase (for example changing the background color
+// unmounting in react
 // mutation.disconnect();
 
 // need to use mutation observer API

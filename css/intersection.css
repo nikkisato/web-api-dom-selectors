@@ -43,7 +43,6 @@
   border-radius: 30px;
   padding: 20px;
   opacity: 0;
-  transform: translateX(500px);
   color: white;
   width: 200px;
   height: 250px;
@@ -51,6 +50,14 @@
   justify-content: center;
   display: flex;
   transition: 0.5s;
+}
+
+.card.left {
+  transform: translateX(500px);
+}
+
+.card.right {
+  transform: translateX(-500px);
 }
 
 .card.show {

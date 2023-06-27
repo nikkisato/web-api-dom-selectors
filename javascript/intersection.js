@@ -38,6 +38,7 @@ const observer2 = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       entry.target.classList.toggle("show", entry.isIntersecting);
+      // could add more classes left or right to determine which way to animate
       if (entry.isIntersecting) observer2.unobserve(entry.target);
     });
   },
